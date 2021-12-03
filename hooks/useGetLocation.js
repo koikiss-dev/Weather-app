@@ -9,7 +9,6 @@ const useGetLocation = () => {
   const ubicacion = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
         setLat(lat);
@@ -34,7 +33,7 @@ const useGetLocation = () => {
             lon: lng,
           },
         });
-        const resultData = data;
+        const resultData = await data;
         setLoading(false)
         setData([resultData]);
       } catch (error) {
@@ -59,8 +58,8 @@ const useGetLocation = () => {
   }, [lat, lng]); */
   useEffect(() => {
     /* get(); */
+    getData()
     
-    setInterval(getData, 6000)
     setInterval(ubicacion, 2000)
     
     
