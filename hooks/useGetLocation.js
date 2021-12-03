@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-
+import { useRouter } from 'next/router'
 import useLocalStorage from 'use-local-storage'
 import { getLocationInit } from "../apiconfig/apiIndex";
 const useGetLocation = () => {
@@ -65,7 +65,6 @@ const useGetLocation = () => {
     }
     console.log(process.env.SECRET_KEY)
     setInterval(ubicacion, 2000)
-    
     
   }, [getData, lat, lng, value]);
 
