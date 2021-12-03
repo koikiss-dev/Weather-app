@@ -37,6 +37,7 @@ export default function Home() {
                   clima={weather[0].main}
                   velocidad={parseInt(speed)}
                   temp={parseInt(temp)}
+                  tempF={parseInt(temp * 9/5 + 32)}
                   agua={humidity}
                   icon={weather[0].icon}
                 />

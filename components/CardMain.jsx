@@ -8,6 +8,7 @@ const CardMain = ({
   agua,
   solHora,
   temp,
+  tempF,
   icon,
 }) => {
   return (
@@ -18,34 +19,36 @@ const CardMain = ({
         <h1 className="text-4xl">{city}</h1>
         <span>{hour}</span>
       </div>
-      <Image
+      <div className="flex justify-center flex-col">
+
+      <Image className="object-contain"
         src={`http://openweathermap.org/img/w/${icon}.png`}
         alt="clima"
-        width="500"
-        height="500"
-        layaut="fill"
+        width="400"
+        height="400"
         priority
         placeholder="blur"
         blurDataURL
       />
-      <span className="text-lg">{clima}</span>
+      <span className="lg:text-xl">{clima}</span>
+      </div>
       {/*content info */}
       <div className="flex items-center justify-around mt-5">
         <div>
           <div className="flex items-center">
             <box-icon color="#fff" name="wind"></box-icon>
-            <span className="ml-2">{velocidad} km/h</span>
+            <span className="ml-2 lg:text-2xl">{velocidad} km/h</span>
           </div>
           <div className="flex items-center">
             <box-icon type="solid" color="#fff" name="droplet-half"></box-icon>
-            <span className="ml-2">{agua}%</span>
+            <span className="ml-2 lg:text-2xl">{agua}%</span>
           </div>
           <div className="flex items-center">
             <box-icon type="solid" color="#fff" name="sun"></box-icon>
             <span>{solHora}</span>
           </div>
         </div>
-        <span>{temp}º</span>
+        <span className="lg:text-2xl">{temp}°C / {tempF}°F </span>
       </div>
     </div>
   );

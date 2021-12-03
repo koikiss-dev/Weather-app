@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+
 import useLocalStorage from 'use-local-storage'
 import { getLocationInit } from "../apiconfig/apiIndex";
 const useGetLocation = () => {
@@ -14,7 +15,6 @@ const useGetLocation = () => {
         let lng = position.coords.longitude;
         setLat(lat);
         setLng(lng);
-        
       });
     }else{
       
@@ -60,7 +60,7 @@ const useGetLocation = () => {
   useEffect(() => {
     /* get(); */
     getData(lat, lng)
-    
+    console.log(process.env.SECRET_KEY)
     setInterval(ubicacion, 2000)
     
     
