@@ -1,9 +1,9 @@
 import axios from 'axios'
-import {apikey} from "./key.json"
+import {apiK} from "./key.js"
 export const getLocationInit = axios.create({
     baseURL: 'http://api.openweathermap.org/data/2.5/weather',
     params:{
-        APPID: apikey,
+        APPID: apiK.apiKey,
         units: 'metric'
     },
 })

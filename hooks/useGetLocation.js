@@ -19,20 +19,24 @@ const useGetLocation = () => {
   const pushData = (e) => {
     setValue(e.target.value);
   };
-  const getData = useCallback(async (city) => {
-    try {
-      const { data } = await getLocationInit({
-        params: {
-          q: city,
-        },
-      });
-      const resultData = data;
-      setData([resultData]);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-  const get = useCallback(async () => {
+  const getData = useCallback(
+    async (city) => {
+      try {
+        const { data } = await getLocationInit({
+          params: {
+            lat: lat,
+            lon: lng,
+          },
+        });
+        const resultData = data;
+        setData([resultData]);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [lat, lng]
+  );
+  /* const get = useCallback(async () => {
     try {
       const { data } = await getLocationInit({
         params: {
@@ -45,14 +49,14 @@ const useGetLocation = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [lat, lng]);
+  }, [lat, lng]); */
   useEffect(() => {
-    get();
+    /* get(); */
     getData(value);
     ubicacion();
-  }, [lat, lng, value, getData, get]);
+  }, [lat, lng, value, getData]);
 
-  return [data, value, lat, lng, pushData, getData, get];
+  return [data, value, lat, lng, pushData, getData];
 };
 
 export default useGetLocation;
