@@ -25,7 +25,7 @@ export default function Home() {
               />
             </label>
           </form>
-          {loading ? <p>cargando</p> : null}
+          {loading ? <span className="text-white">cargando</span> : null}
           {data.map(({ code, name, main, weather, wind }) => {
             const { speed } = wind;
             const { temp, humidity } = main;

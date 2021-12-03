@@ -14,8 +14,10 @@ const useGetLocation = () => {
         let lng = position.coords.longitude;
         setLat(lat);
         setLng(lng);
+        
       });
     }else{
+      
       alert("Please activate location")
     }
   };
@@ -57,8 +59,10 @@ const useGetLocation = () => {
   }, [lat, lng]); */
   useEffect(() => {
     /* get(); */
+    
     setInterval(getData, 6000)
-    ubicacion()
+    setInterval(ubicacion, 2000)
+    
     
   }, [lat, lng, value, getData]);
 
