@@ -3,7 +3,7 @@ import IndexLayout from "../layaut/indexLayaut";
 import Head from "next/head";
 import useGetLocation from "../hooks/useGetLocation";
 export default function Home() {
-  const [data, value, lat, lng, pushData, getData, get] = useGetLocation();
+  const [data, value, lat, lng, pushData, getData, get, loading] = useGetLocation();
   return (
     <>
       <IndexLayout>
@@ -25,6 +25,7 @@ export default function Home() {
               />
             </label>
           </form>
+          {loading ? <p>cargando</p> : null}
           {data.map(({ code, name, main, weather, wind }) => {
             const { speed } = wind;
             const { temp, humidity } = main;

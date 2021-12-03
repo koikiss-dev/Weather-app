@@ -5,6 +5,7 @@ const useGetLocation = () => {
   const [value, setValue] = useState("");
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
+  const [loading, setLoading] = useState(false)
   const ubicacion = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -14,14 +15,17 @@ const useGetLocation = () => {
         setLat(lat);
         setLng(lng);
       });
+    }else{
+      alert("Please activate location")
     }
   };
   const pushData = (e) => {
     setValue(e.target.value);
   };
   const getData = useCallback(
-    async (city) => {
+    async () => {
       try {
+        setLoading(true)
         const { data } = await getLocationInit({
           params: {
             lat: lat,
@@ -29,6 +33,7 @@ const useGetLocation = () => {
           },
         });
         const resultData = data;
+        setLoading(false)
         setData([resultData]);
       } catch (error) {
         console.log(error);
@@ -52,11 +57,12 @@ const useGetLocation = () => {
   }, [lat, lng]); */
   useEffect(() => {
     /* get(); */
-    getData(value);
-    ubicacion();
+    setInterval(getData, 6000)
+    ubicacion()
+    
   }, [lat, lng, value, getData]);
 
-  return [data, value, lat, lng, pushData, getData];
+  return [data, value, lat, lng, pushData, getData, loading];
 };
 
 export default useGetLocation;
