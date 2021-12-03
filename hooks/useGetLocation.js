@@ -43,12 +43,11 @@ const useGetLocation = () => {
     },
     []
   );
-  /* const get = useCallback(async () => {
+  const get = useCallback(async () => {
     try {
       const { data } = await getLocationInit({
         params: {
-          lat: lat,
-          lon: lng,
+          q: value
         },
       });
       const result = data;
@@ -56,15 +55,19 @@ const useGetLocation = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [lat, lng]); */
+  }, [value]);
   useEffect(() => {
     /* get(); */
-    getData(lat, lng)
+    if(value !== ""){
+      get()
+    }else{
+      getData(lat, lng)
+    }
     console.log(process.env.SECRET_KEY)
     setInterval(ubicacion, 2000)
     
     
-  }, [getData, lat, lng]);
+  }, [getData, lat, lng, value]);
 
   return [data, value, lat, lng, pushData, getData, loading];
 };

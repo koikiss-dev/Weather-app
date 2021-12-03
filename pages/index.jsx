@@ -6,7 +6,7 @@ export default function Home() {
   const [data, value, lat, lng, pushData, getData, get, loading] = useGetLocation();
   return (
     <>
-      <IndexLayout>
+      <IndexLayout >
         <Head>
           <title>Clima | {value}</title>
         </Head>
