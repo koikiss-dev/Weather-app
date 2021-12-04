@@ -3,10 +3,11 @@ import IndexLayout from "../layaut/indexLayaut";
 import Head from "next/head";
 import useGetLocation from "../hooks/useGetLocation";
 export default function Home() {
-  const [data, value, lat, lng, pushData, getData, get, loading] = useGetLocation();
+  const [data, value, loading, lat, lng, pushData, getData, get] =
+    useGetLocation();
   return (
     <>
-      <IndexLayout >
+      <IndexLayout>
         <Head>
           <title>Clima | {value}</title>
         </Head>
@@ -25,7 +26,17 @@ export default function Home() {
               />
             </label>
           </form>
-          {loading ? <span className="text-white">cargando</span> : null}
+          {loading ? (
+            <div className="text-white text-center flex flex-col items-center">
+              <box-icon
+                name="loader-alt"
+                animation="spin"
+                size="lg"
+                color="#ffffff"
+              ></box-icon>{" "}
+              <span>Activate Location please or reload</span>
+            </div>
+          ) : null}
           {data.map(({ code, name, main, weather, wind }) => {
             const { speed } = wind;
             const { temp, humidity } = main;
@@ -37,7 +48,7 @@ export default function Home() {
                   clima={weather[0].main}
                   velocidad={parseInt(speed)}
                   temp={parseInt(temp)}
-                  tempF={parseInt(temp * 9/5 + 32)}
+                  tempF={parseInt((temp * 9) / 5 + 32)}
                   agua={humidity}
                   icon={weather[0].icon}
                 />
