@@ -4,6 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
+# PWA files
+sw.js
+workbox-*.js
+worker-*.js
+sw.js.map
+workbox-*.js.map
+worker-*.js.map
 
 # testing
 /coverage
@@ -12,13 +19,6 @@
 /.next/
 /out/
 
-# PWA files
-sw.js
-workbox-*.js
-worker-*.js
-sw.js.map
-workbox-*.js.map
-worker-*.js.map
 # production
 /build
 # misc
