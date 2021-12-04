@@ -62,7 +62,7 @@ const useGetLocation = () => {
       getData(lat, lng);
     }
     console.log(process.env.SECRET_KEY);
-    setInterval(ubicacion, 2000);
+    setInterval(ubicacion, 20000);
   }, [getData, lat, lng, value]);
 
   return [data, value,loading, lat, lng, pushData, getData];

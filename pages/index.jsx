@@ -27,14 +27,14 @@ export default function Home() {
             </label>
           </form>
           {loading ? (
-            <div className="text-white text-center flex flex-col items-center">
+            <div className="text-white z-50 top-40 left-0 right-0 absolute text-center flex flex-col items-center">
               <box-icon
                 name="loader-alt"
                 animation="spin"
                 size="lg"
                 color="#ffffff"
               ></box-icon>{" "}
-              <span>Activate Location please or reload</span>
+              {/* <span>Activate Location please or reload</span> */}
             </div>
           ) : null}
           {data.map(({ code, name, main, weather, wind }) => {

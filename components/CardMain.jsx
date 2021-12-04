@@ -12,7 +12,7 @@ const CardMain = ({
   icon,
 }) => {
   return (
-    <div className="bg-gray-700 text-center m-5 py-5 text-white rounded-2xl">
+    <div className="bg-gray-700 text-center m-5  py-5 text-white rounded-2xl">
       {/*container*/}
       <div className="mb-2">
         {/*top*/}
