@@ -18,7 +18,7 @@ export default function Home() {
           >
             <label>
               <input
-                className="outline-none p-3 pr-32 rounded-md bg-gray-300 text-black border-black "
+                className="outline-none p-3 sm:pr-40 rounded-md bg-gray-300 text-black border-black "
                 placeholder="Search"
                 onChange={pushData}
                 type="text"
