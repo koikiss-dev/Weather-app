@@ -29,8 +29,8 @@ const CardMain = ({
       </div>
       {/*info */}
       <div className="flex flex-col items-center mt-8 lg:mt-2">
-        <h1 className=" text-4xl lg:text-6xl lg:mb-2">{city}</h1>
-        <p className="text-lg  ">
+        <h1 className=" text-3xl lg:text-6xl lg:mb-2">{city}</h1>
+        <p className="text-lg">
           {temp}°C / {tempF}°F
         </p>
         <div className="flex">
