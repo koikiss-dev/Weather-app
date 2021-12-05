@@ -12,7 +12,7 @@ const CardMain = ({
   icon,
 }) => {
   return (
-    <div className="bg-gradient-to-r from-prpleInit-272  to-prpleEnd-586 flex items-center justify-between m-7 pt-0 pb-8 pr-5 text-white rounded-xl lg:flex-col lg:mx-40">
+    <div className="bg-gradient-to-r from-prpleInit-272  to-prpleEnd-586 flex items-center justify-between m-7 pt-0 pb-8 pr-5 text-white rounded-xl sm:flex-col sm:mx-40">
       <div className="flex items-center flex-col">
         <Image
           className="object-contain img-responsive"
@@ -25,11 +25,11 @@ const CardMain = ({
           placeholder="blur"
           blurDataURL
         />
-        <span className="text-xl -mt-8 lg:-mt-4 lg:text-3xl">{clima}</span>
+        <span className="text-xl -mt-8 sm:-mt-4 sm:text-3xl">{clima}</span>
       </div>
       {/*info */}
-      <div className="flex flex-col items-center mt-8 lg:mt-2">
-        <h1 className=" text-3xl lg:text-6xl lg:mb-2">{city}</h1>
+      <div className="flex flex-col items-center mt-8 sm:mt-2">
+        <h1 className=" text-3xl sm:text-6xl sm:mb-2">{city}</h1>
         <p className="text-lg">
           {temp}°C / {tempF}°F
         </p>
