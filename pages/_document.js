@@ -11,7 +11,7 @@ const MyDocument = () => {
         <meta name="theme-color" content="#fff" />
         
       </Head>
-      <body  className="bg-gray-900">
+      <body  className="bg-purple-1416">
         <Main />
         <NextScript />
       </body>

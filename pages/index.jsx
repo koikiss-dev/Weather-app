@@ -11,14 +11,14 @@ export default function Home() {
         <Head>
           <title>Clima | {value}</title>
         </Head>
-        <main className="container mx-auto">
+        <main className="container mt-8">
           <form
-            className="flex justify-center m-5"
+            className="flex justify-center m-5 "
             onSubmit={(e) => e.preventDefault()}
           >
             <label>
               <input
-                className="outline-none p-3 rounded-md bg-gray-300 text-black border-black"
+                className="outline-none p-3 pr-64 rounded-md bg-gray-300 text-black border-black "
                 placeholder="Search"
                 onChange={pushData}
                 type="text"
@@ -40,7 +40,7 @@ export default function Home() {
           {data.map(({ code, name, main, weather, wind }) => {
             const { speed } = wind;
             const { temp, humidity } = main;
-
+            const icon = weather[0].icon;
             return (
               <div key={code}>
                 <CardMain
@@ -50,7 +50,7 @@ export default function Home() {
                   temp={parseInt(temp)}
                   tempF={parseInt((temp * 9) / 5 + 32)}
                   agua={humidity}
-                  icon={weather[0].icon}
+                  icon={icon}
                 />
               </div>
             );
