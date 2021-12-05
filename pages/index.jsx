@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <IndexLayout>
         <Head>
-          <title>Clima | {value}</title>
+          <title>Clima | {value === "" ? "Today" : value}</title>
         </Head>
         <main className="container mt-8">
           <form
