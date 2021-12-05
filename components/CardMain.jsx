@@ -12,7 +12,7 @@ const CardMain = ({
   icon,
 }) => {
   return (
-    <div className="bg-gradient-to-r from-prpleInit-272  to-prpleEnd-586 flex items-center justify-between m-10 pt-0 pb-8 pr-5 text-white rounded-xl lg:flex-col lg:mx-40">
+    <div className="bg-gradient-to-r from-prpleInit-272  to-prpleEnd-586 flex items-center justify-between m-7 pt-0 pb-8 pr-5 text-white rounded-xl lg:flex-col lg:mx-40">
       <div className="flex items-center flex-col">
         <Image
           className="object-contain img-responsive"
