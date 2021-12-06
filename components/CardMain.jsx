@@ -12,19 +12,24 @@ const CardMain = ({
   icon,
 }) => {
   const [date, setDate] = useState("");
+  const [format, setFormat] = useState("");
   const dataToday = () => {
     const today = new Date();
     const hourNow = today.getHours();
     const minutesNow = today.getMinutes();
     setDate(`${hourNow}:${minutesNow}`);
+    setFormat(`${hourNow >= 12 ? "pm" : "am"}`);
   };
   useEffect(() => {
-    setInterval(dataToday(), 1000);
-  }, []);
+    setInterval(dataToday, 1000);
+  }, [date]);
   return (
     <section className="bg-gradient-to-r from-prpleInit-272  to-prpleEnd-586 flex items-center justify-between m-7 pt-0 pb-8 pr-5 text-white rounded-xl sm:flex-col sm:mx-40 relative">
       <div className="absolute top-0 right-0 bg-prpeLigth-869 rounded-bl-xl rounded-tr-xl py-px px-8">
-        <span>{date}</span>
+        <span>
+          {date}
+          {format}
+        </span>
       </div>
       <div className="flex items-center flex-col">
         <Image
