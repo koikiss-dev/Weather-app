@@ -4,6 +4,7 @@
 /.pnp
 .pnp.js
 # PWA files
+.env
 sw.js
 workbox-*.js
 sw.js.map
@@ -36,4 +37,6 @@ yarn-error.log*
 .env.production.local
 
 # vercel
+.vercel
+
 .vercel
