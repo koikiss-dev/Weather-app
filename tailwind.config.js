@@ -13,6 +13,9 @@ module.exports = {
         prpleEnd: {
           586: "#5861C4",
         },
+        prpeLigth: {
+          869: "#8E95E3",
+        },
         /* 'bg-dark-purple': "#14162C",
         'gr-purple-init': "#272A75",
         'gr-purple-end': "#5861C4" */

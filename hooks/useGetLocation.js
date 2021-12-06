@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import useLocalStorage from "use-local-storage";
-import { getLocationInit } from "../apiconfig/apiIndex";
+import { getLocationCoords, getLocationName } from "../apiconfig/apiIndex";
 const useGetLocation = () => {
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
@@ -26,13 +26,13 @@ const useGetLocation = () => {
   const getData = useCallback(async (latitud, lon) => {
     try {
       setLoading(true);
-      const { data } = await getLocationInit({
+      const { data } = await getLocationCoords({
         params: {
           lat: latitud,
           lon: lon,
         },
       });
-      const resultData = await data;
+      const resultData = await data.data;
       setData([resultData]);
       setLoading(false);
     } catch (error) {
@@ -42,12 +42,12 @@ const useGetLocation = () => {
   const get = useCallback(async () => {
     try {
       setLoading(true);
-      const { data } = await getLocationInit({
+      const { data } = await getLocationName({
         params: {
           q: value,
         },
       });
-      const result = data;
+      const result = data.data;
       setData([result]);
       setLoading(false);
     } catch (error) {
@@ -55,17 +55,15 @@ const useGetLocation = () => {
     }
   }, [value]);
   useEffect(() => {
-    /* get(); */
     if (value !== "") {
       get();
     } else {
       getData(lat, lng);
     }
-    console.log(process.env.SECRET_KEY);
     setInterval(ubicacion, 2000);
   }, [getData, lat, lng, value]);
 
-  return [data, value,loading, lat, lng, pushData, getData];
+  return [data, value, loading, lat, lng, pushData, getData];
 };
 
 export default useGetLocation;

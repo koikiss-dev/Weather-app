@@ -34,7 +34,6 @@ export default function Home() {
                 size="lg"
                 color="#ffffff"
               ></box-icon>{" "}
-              {/* <span>Activate Location please or reload</span> */}
             </div>
           ) : null}
           {data.map(({ code, name, main, weather, wind }) => {
