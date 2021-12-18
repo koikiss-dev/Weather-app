@@ -1,10 +1,13 @@
+import { useState, useEffect } from "react";
 import CardMain from "../components/CardMain";
 import IndexLayout from "../layaut/indexLayaut";
 import Head from "next/head";
+import { getLastday } from "../apiconfig/apiIndex";
 import useGetLocation from "../hooks/useGetLocation";
 export default function Home() {
   const [data, value, loading, lat, lng, pushData, getData, get] =
     useGetLocation();
+
   return (
     <>
       <IndexLayout>

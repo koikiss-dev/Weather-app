@@ -12,3 +12,10 @@ export const getLocationName = axios.create({
     Accept: "aplication/json",
   },
 });
+
+export const getLastday = axios.create({
+  baseURL: "/api/lastdays",
+  headers: {
+    Accept: "aplication/json",
+  },
+});

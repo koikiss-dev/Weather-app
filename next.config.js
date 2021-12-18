@@ -1,11 +1,12 @@
 const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
 module.exports = withPWA({
+  pwa: {
+    dest: "public",
+    runtimeCaching,
+  },
   reactStrictMode: true,
   images: {
     domains: ["openweathermap.org"],
-  },
-  pwa: {
-    dest: "public",
-    publicExcludes: ["!google*.html", "!_error*.js"],
   },
 });
