@@ -7,7 +7,7 @@ const MyDocument = () => {
         <link rel="apple-touch-icon" href="/icon.png"></link>
         <link rel="icon" href="/favicon.ico"></link>
         <meta name="description" content="Weather app" />
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="#14162C" />
       </Head>
       <body className="bg-purple-1416">
         <Main />
