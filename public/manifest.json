@@ -1,7 +1,7 @@
 {
   "theme_color": "#14162C",
   "background_color": "#14162C",
-  "display": "fullscreen",
+  "display": "standalone",
   "start_url": ".",
   "scope": "/",
   "name": "Weather App",
