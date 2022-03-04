@@ -23,33 +23,29 @@ const useGetLocation = () => {
   const pushData = (e) => {
     setValue(e.target.value);
   };
-  const getData = useCallback(
-    async (latitud, lon) => {
-      try {
-        setLoading(true);
-        const { data } = await getLocation({
-          params: {
-            lat: latitud,
-            lon: lon,
-            units: "metric",
-          },
-        });
-        const resultData = await data;
-        setData([resultData]);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    [lat, lng]
-  );
+  const getData = async (latitud, lon) => {
+    try {
+      setLoading(true);
+      const { data } = await getLocation({
+        params: {
+          lat: latitud,
+          lon: lon,
+          units: "metric",
+        },
+      });
+      const resultData = await data;
+      setData([resultData]);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const getCountry = useCallback(async () => {
     try {
       setLoading(true);
       const { data } = await getLocation({
         params: {
           q: value,
-
           units: "metric",
         },
       });
