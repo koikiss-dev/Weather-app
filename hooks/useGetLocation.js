@@ -1,11 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import useLocalStorage from "use-local-storage";
-import {
-  getLocationCoords,
-  getLocationName,
-  getLastday,
-} from "../apiconfig/apiIndex";
+import { getLocation } from "../apiconfig/apiIndex";
 const useGetLocation = () => {
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
@@ -27,31 +23,37 @@ const useGetLocation = () => {
   const pushData = (e) => {
     setValue(e.target.value);
   };
-  const getData = useCallback(async (latitud, lon) => {
+  const getData = useCallback(
+    async (latitud, lon) => {
+      try {
+        setLoading(true);
+        const { data } = await getLocation({
+          params: {
+            lat: latitud,
+            lon: lon,
+            units: "metric",
+          },
+        });
+        const resultData = await data;
+        setData([resultData]);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [lat, lng]
+  );
+  const getCountry = useCallback(async () => {
     try {
       setLoading(true);
-      const { data } = await getLocationCoords({
-        params: {
-          lat: latitud,
-          lon: lon,
-        },
-      });
-      const resultData = await data.data;
-      setData([resultData]);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-  const get = useCallback(async () => {
-    try {
-      setLoading(true);
-      const { data } = await getLocationName({
+      const { data } = await getLocation({
         params: {
           q: value,
+
+          units: "metric",
         },
       });
-      const result = data.data;
+      const result = data;
       setData([result]);
       setLoading(false);
     } catch (error) {
@@ -59,28 +61,14 @@ const useGetLocation = () => {
     }
   }, [value]);
 
-  const getForecast = async () => {
-    try {
-      const { data } = await getLastday({
-        params: {
-          q: "london",
-        },
-      });
-      const result = await data.data;
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
     if (value !== "") {
-      get();
+      getCountry();
     } else {
       getData(lat, lng);
     }
-    getForecast;
     setInterval(ubicacion, 2000);
-  }, [getData, lat, lng, value]);
+  }, [lat, lng, value]);
 
   return [data, value, loading, lat, lng, pushData, getData];
 };
