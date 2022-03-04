@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getLocation = axios.create({
-  baseURL: "http://api.openweathermap.org/data/2.5/weather",
+  baseURL: "https://api.openweathermap.org/data/2.5/weather",
   params: {
     APPID: "d2edeca8d612bc0f975e367efabe2392",
   },
