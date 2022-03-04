@@ -23,7 +23,7 @@ const useGetLocation = () => {
   const pushData = (e) => {
     setValue(e.target.value);
   };
-  const getData = async (latitud, lon) => {
+  const getData = useCallback(async (latitud, lon) => {
     try {
       setLoading(true);
       const { data } = await getLocation({
@@ -39,7 +39,7 @@ const useGetLocation = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
   const getCountry = useCallback(async () => {
     try {
       setLoading(true);
